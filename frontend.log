@@ -1,0 +1,57 @@
+
+> sensitive-word-detector-enhanced@1.0.0 dev
+> vite
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.21  ready in 227 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+10:02:04 AM [vite] page reload public/test-api.html
+10:03:23 AM [vite] hmr update /src/views/Home.vue, /src/components/AppFooter.vue, /src/components/DetectSection.vue, /src/views/WordLib.vue
+10:03:31 AM [vite] hmr update /src/views/Home.vue, /src/components/AppFooter.vue, /src/components/DetectSection.vue, /src/views/WordLib.vue
+11:16:54 AM [vite] hmr update /src/views/Home.vue, /src/components/AppFooter.vue, /src/components/DetectSection.vue, /src/views/WordLib.vue
+11:18:09 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+11:18:09 AM [vite] http proxy error: /api/wordLib/categories
+Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:617:25)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+11:18:09 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:617:25)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+11:18:09 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:617:25)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+11:18:09 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:617:25)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+11:18:09 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: socket hang up
+    at Socket.socketOnEnd (node:_http_client:617:25)
+    at Socket.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+11:18:14 AM [vite] http proxy error: /api/wordLib/latest-lib
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+11:22:28 AM [vite] hmr update /src/views/Home.vue, /src/components/AppFooter.vue, /src/components/DetectSection.vue, /src/views/WordLib.vue
+11:24:01 AM [vite] hmr update /src/views/Home.vue, /src/components/AppFooter.vue, /src/components/DetectSection.vue, /src/views/WordLib.vue
+11:45:40 AM [vite] hmr update /src/styles/index.css
+11:46:35 AM [vite] hmr update /src/views/WordLib.vue?vue&type=style&index=0&scoped=3632857a&lang.css
+11:47:07 AM [vite] hmr update /src/styles/element-plus.css
+11:47:32 AM [vite] vite.config.js changed, restarting server...
+11:47:32 AM [vite] server restarted.

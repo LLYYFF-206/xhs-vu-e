@@ -1,0 +1,101 @@
+/* Element Plus 覆盖样式 */
+.el-button--primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.el-button--primary:hover {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.el-button--primary:focus {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.el-tabs__item.is-active {
+  color: var(--color-primary);
+}
+
+.el-tabs__active-bar {
+  background-color: var(--color-primary);
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: var(--color-primary);
+}
+
+.el-select .el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.el-message--success {
+  --el-message-bg-color: #f0fdf4;
+  --el-message-border-color: #86efac;
+  --el-message-text-color: var(--color-success);
+}
+
+.el-message--error {
+  --el-message-bg-color: #fef2f2;
+  --el-message-border-color: #fca5a5;
+  --el-message-text-color: var(--color-danger);
+}
+
+.el-message--warning {
+  --el-message-bg-color: #fffbeb;
+  --el-message-border-color: #fcd34d;
+  --el-message-text-color: var(--color-warning);
+}
+
+.el-message--info {
+  --el-message-bg-color: #eff6ff;
+  --el-message-border-color: #93c5fd;
+  --el-message-text-color: var(--color-info);
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.el-textarea__inner:focus {
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.el-drawer__header {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.el-drawer__body {
+  padding: var(--spacing-lg);
+}
+
+.el-dialog__header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.el-dialog__body {
+  padding: var(--spacing-lg);
+}
+
+.el-dialog__footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-color-light);
+}
