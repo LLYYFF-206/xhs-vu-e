@@ -4,7 +4,6 @@ import axios from 'axios'
 const jsonParser = (text) => {
   return JSON.parse(text, (key, value) => {
     if (key === 'id' && typeof value === 'number') {
-      // 如果ID在解析时变成了number，可能已经丢失精度了
       return String(value)
     }
     return value
@@ -12,7 +11,8 @@ const jsonParser = (text) => {
 }
 
 const api = axios.create({
-baseURL: 'https://collins-mph-dive-architects.trycloudflare.com/api',
+  // ✅ 这里改成你正确的域名！
+  baseURL: 'https://collins-mph-dive-arc.xxx.com/api',
   timeout: 60000,
   // 自定义响应解析器，防止大整数精度丢失
   transformResponse: [(data) => {
