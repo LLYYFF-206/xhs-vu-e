@@ -28,13 +28,7 @@ export default defineConfig({
     allowedHosts: [
       "collins-mph-dive-architects.trycloudflare.com"  // 👈 我帮你加在这里了
     ],
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8080',
-        changeOrigin: true,
-        rewrite: (path) => path
-      }
-    }
+    
   },
   build: {
     outDir: 'dist',
