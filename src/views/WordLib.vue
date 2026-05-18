@@ -346,11 +346,9 @@ onMounted(() => {
 })
 
 async function loadWordLib() {
-  await Promise.all([
-    wordLibStore.syncWordLib(),
-    wordLibStore.loadCategories(),
-    loadWords()
-  ])
+  await wordLibStore.syncWordLib() // 先跑
+  await wordLibStore.loadCategories() // 再跑
+  await loadWords() // 最后跑
 }
 
 async function loadWords() {
