@@ -12,7 +12,7 @@ const jsonParser = (text) => {
 }
 
 const api = axios.create({
-  baseURL: '/api',
+baseURL: 'https://collins-mph-dive-architects.trycloudflare.com',
   timeout: 60000,
   // 自定义响应解析器，防止大整数精度丢失
   transformResponse: [(data) => {
