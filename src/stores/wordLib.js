@@ -37,6 +37,9 @@ export const useWordLibStore = defineStore('wordLib', () => {
       if (response.code === 0) {
         wordLib.value = response.data.categories
         lastUpdateTime.value = response.data.updateTime
+           // ✅ 这两行就是你缺的！！加上就显示了！
+      totalWords.value = response.data.totalCount
+      categories.value = response.data.categoryList || []
         return true
       }
       return false
