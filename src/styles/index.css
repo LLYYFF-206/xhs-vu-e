@@ -1,7 +1,12 @@
+/* 🔥 强制移动端适配（核心） */
+* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 :root {
   --color-primary: #6366f1;
   --color-primary-dark: #4f46e5;
-  --color-primary-light: #818cf8;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
@@ -10,153 +15,63 @@
   --color-text-primary: #1e293b;
   --color-text-regular: #475569;
   --color-text-secondary: #64748b;
-  --color-text-placeholder: #94a3b8;
 
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
-  --color-bg-tertiary: #f1f5f9;
-
   --border-color-base: #e2e8f0;
-  --border-color-light: #f1f5f9;
-  --border-color-lighter: #f8fafc;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-  --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
 
-  --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
 }
 
-html {
-  box-sizing: border-box;
+html, body {
   width: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-secondary);
-  width: 100%;
-  min-height: 100vh;
+  background: var(--color-bg-secondary);
+  overflow-x: hidden;
 }
 
-/* 🔥 核心：移动端优先适配 */
 .container {
   width: 100%;
-  max-width: 100%;
+  padding: 0 12px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
 }
 
 .card {
-  background: var(--color-bg-primary);
+  background: white;
   border-radius: var(--radius-lg);
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  margin-bottom: 12px;
   width: 100%;
-  margin-bottom: var(--spacing-md);
 }
 
-/* 按钮、输入框强制适配 */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .btn {
-    width: 100%;
-    margin-bottom: var(--spacing-xs);
-  }
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-.input, .textarea, select {
   width: 100%;
-  padding: var(--spacing-md);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 12px;
   border: 1px solid var(--border-color-base);
   border-radius: var(--radius-md);
-  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-/* 标签自动换行 */
-.tag-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
-  font-size: 12px;
-  color: var(--color-text-regular);
-}
-
-/* 弹性布局适配 */
 .flex {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-
-@media (max-width: 768px) {
-  .flex {
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-  }
-}
-
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .flex-between {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-  }
-}
-
-/* 工具类 */
-.w-full {
-  width: 100%;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-md { margin-top: var(--spacing-md); }
-.mb-md { margin-bottom: var(--spacing-md); }
