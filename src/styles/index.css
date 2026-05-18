@@ -21,7 +21,7 @@
   --border-color-lighter: #f8fafc;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1 rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
@@ -40,17 +40,14 @@
 
 html {
   box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-html {
-  width: 100%;
-  overflow-x: hidden;
 }
 
 body {
@@ -66,19 +63,39 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
-/* 移动端基础样式 */
+/* ======================
+   🔥 手机端修复（核心）
+====================== */
 @media (max-width: 768px) {
   body {
     font-size: 13px;
     padding-bottom: env(safe-area-inset-bottom);
+  }
+  .container {
+    padding: 0 12px !important;
+    max-width: 100% !important;
+  }
+  .card {
+    padding: 12px !important;
   }
 }
 
 @media (max-width: 576px) {
   body {
     font-size: 12px;
+  }
+  .flex {
+    flex-wrap: wrap !important;
+  }
+  .btn {
+    width: 100% !important;
+    margin-bottom: 6px;
+  }
+  input, .textarea {
+    max-width: 100% !important;
   }
 }
 
@@ -103,6 +120,7 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  width: 100%;
 }
 
 .card {
@@ -110,6 +128,7 @@ button {
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
+  width: 100%;
 }
 
 .btn {
