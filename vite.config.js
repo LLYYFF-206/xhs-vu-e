@@ -25,6 +25,9 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    allowedHosts: [
+      "collins-mph-dive-architects.trycloudflare.com"  // 👈 我帮你加在这里了
+    ],
     proxy: {
       '/api': {
         target: 'http://localhost:8080',

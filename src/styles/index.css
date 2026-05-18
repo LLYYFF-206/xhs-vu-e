@@ -48,6 +48,11 @@ html {
   box-sizing: inherit;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -58,6 +63,23 @@ body {
   background-color: var(--color-bg-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 移动端基础样式 */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 12px;
+  }
 }
 
 a {

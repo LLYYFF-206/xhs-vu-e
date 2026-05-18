@@ -29,34 +29,37 @@
               </template>
 
               <!-- 搜索栏 -->
-              <el-form :inline="true" :model="searchForm" class="search-form">
-                <el-form-item label="关键词">
-                  <el-input
-                    v-model="searchForm.keyword"
-                    placeholder="搜索敏感词"
-                    clearable
-                    @keyup.enter="handleSearch"
-                  />
-                </el-form-item>
-                <el-form-item label="分类">
-                  <el-select
-                    v-model="searchForm.category"
-                    placeholder="选择分类"
-                    clearable
-                    style="width: 180px"
-                  >
-                    <el-option
-                      v-for="cat in categories"
-                      :key="cat"
-                      :label="cat"
-                      :value="cat"
+              <el-form :model="searchForm" class="search-form">
+                <div class="search-row">
+                  <el-form-item label="关键词" class="search-item">
+                    <el-input
+                      v-model="searchForm.keyword"
+                      placeholder="搜索敏感词"
+                      clearable
+                      @keyup.enter="handleSearch"
+                      class="search-input"
                     />
-                  </el-select>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="handleSearch">搜索</el-button>
-                  <el-button @click="handleReset">重置</el-button>
-                </el-form-item>
+                  </el-form-item>
+                  <el-form-item label="分类" class="search-item">
+                    <el-select
+                      v-model="searchForm.category"
+                      placeholder="选择分类"
+                      clearable
+                      class="search-select"
+                    >
+                      <el-option
+                        v-for="cat in categories"
+                        :key="cat"
+                        :label="cat"
+                        :value="cat"
+                      />
+                    </el-select>
+                  </el-form-item>
+                  <el-form-item class="search-item search-actions">
+                    <el-button type="primary" @click="handleSearch">搜索</el-button>
+                    <el-button @click="handleReset">重置</el-button>
+                  </el-form-item>
+                </div>
               </el-form>
 
               <!-- 添加新分类 -->
@@ -173,14 +176,14 @@
               </div>
 
               <!-- 词库列表 -->
-              <el-table
-                :data="words"
-                v-loading="loading"
-                stripe
-                style="width: 100%; margin-top: 16px"
-                :max-height="600"
-                :key="tableKey"
-              >
+              <div class="table-container" style="margin-top: 16px">
+                <el-table
+                  :data="words"
+                  v-loading="loading"
+                  stripe
+                  :max-height="500"
+                  :key="tableKey"
+                >
                 <el-table-column prop="word" label="敏感词" min-width="150" show-overflow-tooltip />
                 <el-table-column prop="category" label="分类" width="120">
                   <template #default="{ row }">
@@ -194,7 +197,7 @@
                     <span class="time-text">{{ formatDate(row.createdAt) }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="操作" fixed="right" width="120" align="center">
+                <el-table-column label="操作" width="100" align="center">
                   <template #default="{ row }">
                     <el-button
                       type="primary"
@@ -204,7 +207,6 @@
                     >
                       编辑
                     </el-button>
-                    <el-divider direction="vertical" />
                     <el-button
                       type="danger"
                       link
@@ -215,7 +217,8 @@
                     </el-button>
                   </template>
                 </el-table-column>
-              </el-table>
+                </el-table>
+              </div>
 
               <!-- 分页 -->
               <el-pagination
@@ -611,10 +614,51 @@ function formatDate(date) {
 /* 搜索栏样式 */
 .search-form {
   margin-bottom: 24px;
-  padding: 20px;
+  padding: 16px;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color-light);
+}
+
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.search-item {
+  flex: 1;
+  min-width: 150px;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-select {
+  width: 100%;
+}
+
+.search-actions {
+  display: flex;
+  gap: 8px;
+  min-width: auto;
+}
+
+@media (max-width: 576px) {
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-item {
+    width: 100%;
+  }
+  
+  .search-actions {
+    justify-content: flex-start;
+  }
 }
 
 /* 统计卡片样式 */
@@ -623,6 +667,18 @@ function formatDate(date) {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .stat-item {
@@ -760,16 +816,30 @@ function formatDate(date) {
 }
 
 /* 表格样式 */
-:deep(.el-table) {
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-md);
-  overflow: hidden;
   border: 1px solid var(--border-color-light);
+}
+
+:deep(.el-table) {
+  border-radius: 0;
+  border: none;
+  min-width: 600px;
 }
 
 :deep(.el-table th) {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   color: var(--color-text-primary);
   font-weight: 600;
+  font-size: 12px;
+  padding: 12px 8px;
+}
+
+:deep(.el-table td) {
+  padding: 10px 8px;
+  font-size: 13px;
 }
 
 :deep(.el-table--striped .el-table__body tr.el-table__row--striped td) {
@@ -778,6 +848,19 @@ function formatDate(date) {
 
 :deep(.el-table__row:hover td) {
   background: #f1f5f9 !important;
+}
+
+@media (max-width: 576px) {
+  :deep(.el-table th),
+  :deep(.el-table td) {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+  
+  :deep(.el-button--text) {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
 }
 
 .time-text {
