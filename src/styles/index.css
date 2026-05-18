@@ -21,27 +21,22 @@
   --border-color-lighter: #f8fafc;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1 rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --radius-xl: 18px;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
-  --spacing-xl: 32px;
-  --spacing-2xl: 48px;
 }
 
 html {
   box-sizing: border-box;
   width: 100%;
-  overflow-x: hidden;
+  /* 删掉 overflow-x: hidden！ */
 }
 
 *,
@@ -58,55 +53,31 @@ body {
   line-height: 1.6;
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
-  max-width: 100vw;
+  /* 关键：删掉 overflow-x: hidden！ */
 }
 
-/* ======================
-   🔥 手机端修复（核心）
-====================== */
+/* 移动端：强制适配、允许缩放、允许横向滚动 */
 @media (max-width: 768px) {
   body {
     font-size: 13px;
-    padding-bottom: env(safe-area-inset-bottom);
   }
   .container {
-    padding: 0 12px !important;
+    padding: 0 12px;
     max-width: 100% !important;
-  }
-  .card {
-    padding: 12px !important;
-  }
-}
-
-@media (max-width: 576px) {
-  body {
-    font-size: 12px;
   }
   .flex {
     flex-wrap: wrap !important;
   }
   .btn {
     width: 100% !important;
-    margin-bottom: 6px;
-  }
-  input, .textarea {
-    max-width: 100% !important;
   }
 }
 
 a {
   color: var(--color-info);
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-primary);
 }
 
 button {
@@ -140,7 +111,6 @@ button {
   border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 500;
-  transition: all 0.2s;
   white-space: nowrap;
 }
 
@@ -149,69 +119,12 @@ button {
   color: #fff;
 }
 
-.btn-primary:hover {
-  background: var(--color-primary-dark);
-}
-
-.btn-secondary {
-  background: var(--color-bg-secondary);
-  color: var(--color-text-primary);
-}
-
-.btn-secondary:hover {
-  background: var(--border-color-light);
-}
-
-.btn-danger {
-  background: var(--color-danger);
-  color: #fff;
-}
-
-.btn-danger:hover {
-  background: #d9363e;
-}
-
-.btn-success {
-  background: var(--color-success);
-  color: #fff;
-}
-
-.btn-success:hover {
-  background: #389e0d;
-}
-
-.btn-text {
-  background: transparent;
-  color: var(--color-info);
-  padding: var(--spacing-xs) var(--spacing-sm);
-}
-
-.btn-text:hover {
-  background: rgba(24, 144, 255, 0.1);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--color-text-regular);
-  padding: var(--spacing-sm) var(--spacing-md);
-}
-
-.btn-ghost:hover {
-  background: var(--color-bg-secondary);
-}
-
 .input {
   width: 100%;
   padding: var(--spacing-md);
   border: 1px solid var(--border-color-base);
   border-radius: var(--radius-md);
   font-size: 14px;
-  transition: border-color 0.2s;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--color-primary);
 }
 
 .textarea {
@@ -220,168 +133,17 @@ button {
   border: 1px solid var(--border-color-base);
   border-radius: var(--radius-md);
   font-size: 14px;
-  font-family: inherit;
-  resize: vertical;
-  transition: border-color 0.2s;
   min-height: 120px;
-}
-
-.textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.badge-primary {
-  background: rgba(255, 36, 66, 0.1);
-  color: var(--color-primary);
-}
-
-.badge-success {
-  background: rgba(82, 196, 26, 0.1);
-  color: var(--color-success);
-}
-
-.badge-warning {
-  background: rgba(250, 173, 20, 0.1);
-  color: var(--color-warning);
-}
-
-.badge-danger {
-  background: rgba(255, 77, 79, 0.1);
-  color: var(--color-danger);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-lg);
-  font-size: 12px;
-  color: var(--color-text-regular);
-  margin: 2px;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border-color-light);
-  margin: var(--spacing-lg) 0;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-muted {
-  color: var(--color-text-secondary);
-}
-
-.text-small {
-  font-size: 12px;
-}
-
-.text-large {
-  font-size: 16px;
-}
-
-.text-xlarge {
-  font-size: 18px;
-}
-
-.text-xxlarge {
-  font-size: 20px;
-}
-
-.font-bold {
-  font-weight: 600;
 }
 
 .flex {
   display: flex;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-end {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .flex-wrap {
   flex-wrap: wrap;
 }
 
-.gap-xs {
-  gap: var(--spacing-xs);
-}
-
-.gap-sm {
-  gap: var(--spacing-sm);
-}
-
-.gap-md {
-  gap: var(--spacing-md);
-}
-
-.gap-lg {
-  gap: var(--spacing-lg);
-}
-
-.mt-xs { margin-top: var(--spacing-xs); }
-.mt-sm { margin-top: var(--spacing-sm); }
-.mt-md { margin-top: var(--spacing-md); }
-.mt-lg { margin-top: var(--spacing-lg); }
-.mt-xl { margin-top: var(--spacing-xl); }
-
-.mb-xs { margin-bottom: var(--spacing-xs); }
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
-.mb-xl { margin-bottom: var(--spacing-xl); }
-
-.ml-xs { margin-left: var(--spacing-xs); }
-.ml-sm { margin-left: var(--spacing-sm); }
-.ml-md { margin-left: var(--spacing-md); }
-.ml-lg { margin-left: var(--spacing-lg); }
-
-.mr-xs { margin-right: var(--spacing-xs); }
-.mr-sm { margin-right: var(--spacing-sm); }
-.mr-md { margin-right: var(--spacing-md); }
-.mr-lg { margin-right: var(--spacing-lg); }
-
-.p-xs { padding: var(--spacing-xs); }
-.p-sm { padding: var(--spacing-sm); }
-.p-md { padding: var(--spacing-md); }
-.p-lg { padding: var(--spacing-lg); }
-.p-xl { padding: var(--spacing-xl); }
-
 .w-full {
   width: 100%;
-}
-
-.h-full {
-  height: 100%;
 }
