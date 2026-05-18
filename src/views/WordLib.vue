@@ -711,6 +711,8 @@ function formatDate(date) {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
+  width: auto;
 }
 
 /* 功能卡片样式 */
