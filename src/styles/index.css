@@ -1,5 +1,5 @@
 /* 🔥 强制移动端适配（核心） */
-* {
+*:not(.stat-value) {
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
