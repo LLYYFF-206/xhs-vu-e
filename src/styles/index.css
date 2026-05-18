@@ -36,7 +36,6 @@
 html {
   box-sizing: border-box;
   width: 100%;
-  /* 删掉 overflow-x: hidden！ */
 }
 
 *,
@@ -55,63 +54,43 @@ body {
   background-color: var(--color-bg-secondary);
   width: 100%;
   min-height: 100vh;
-  /* 关键：删掉 overflow-x: hidden！ */
 }
 
-/* 移动端：强制适配、允许缩放、允许横向滚动 */
-@media (max-width: 768px) {
-  body {
-    font-size: 13px;
-  }
-  .container {
-    padding: 0 12px;
-    max-width: 100% !important;
-  }
-  .flex {
-    flex-wrap: wrap !important;
-  }
-  .btn {
-    width: 100% !important;
-  }
-}
-
-a {
-  color: var(--color-info);
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  font-family: inherit;
-}
-
+/* 🔥 核心：移动端优先适配 */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-lg);
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
 }
 
 .card {
   background: var(--color-bg-primary);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
   width: 100%;
+  margin-bottom: var(--spacing-md);
 }
 
+/* 按钮、输入框强制适配 */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+  }
 }
 
 .btn-primary {
@@ -119,7 +98,7 @@ button {
   color: #fff;
 }
 
-.input {
+.input, .textarea, select {
   width: 100%;
   padding: var(--spacing-md);
   border: 1px solid var(--border-color-base);
@@ -127,23 +106,57 @@ button {
   font-size: 14px;
 }
 
-.textarea {
-  width: 100%;
-  padding: var(--spacing-md);
-  border: 1px solid var(--border-color-base);
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  min-height: 120px;
+/* 标签自动换行 */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
 }
 
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  font-size: 12px;
+  color: var(--color-text-regular);
+}
+
+/* 弹性布局适配 */
 .flex {
   display: flex;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+@media (max-width: 768px) {
+  .flex {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
 }
 
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .flex-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* 工具类 */
 .w-full {
   width: 100%;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.mt-md { margin-top: var(--spacing-md); }
+.mb-md { margin-bottom: var(--spacing-md); }
