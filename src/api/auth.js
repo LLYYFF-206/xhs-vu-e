@@ -12,8 +12,7 @@ const jsonParser = (text) => {
 
 const api = axios.create({
   // ✅ 这里改成你正确的域名！
-  baseURL: 'https://collins-mph-dive-architects.trycloudflare.com/api',
-  timeout: 60000,
+baseURL: 'https://aaaasdad-xhs.hf.space/api',  timeout: 60000,
   // 自定义响应解析器，防止大整数精度丢失
   transformResponse: [(data) => {
     if (typeof data === 'string') {
