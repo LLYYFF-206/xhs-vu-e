@@ -712,17 +712,14 @@ function formatDate(date) {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   
-  /* 👇 把这两行删掉 */
-  /* display: inline-block; */
-  /* width: auto; */
+  /* 关键修复：使用flex布局 */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   
-  /* 👇 换成这三行，一个都不能少 */
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
-  
-  /* 👇 加这一行，强制GPU渲染，彻底解决bug */
-  transform: translateZ(0);
+  /* 给一个固定的高度，确保有足够空间渲染渐变 */
+  height: 40px;
+  line-height: 1;
 }
 
 /* 功能卡片样式 */
