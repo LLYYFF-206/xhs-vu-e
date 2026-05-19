@@ -712,14 +712,12 @@ function formatDate(date) {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   
-  /* 关键修复：使用flex布局 */
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  /* 👇 只改这三行，上面的渐变完全保留 */
+  display: block !important;
+  text-align: center !important;
   
-  /* 给一个固定的高度，确保有足够空间渲染渐变 */
-  height: 40px;
-  line-height: 1;
+  /* 👇 加这一行，强制GPU渲染，彻底绕过WebKit的bug */
+  transform: translateZ(0);
 }
 
 /* 功能卡片样式 */
