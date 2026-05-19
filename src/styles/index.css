@@ -1,12 +1,17 @@
-/* 🔥 强制移动端适配（核心） */
-*:not(.stat-value) {
-  max-width: 100% !important;
+/* 🔥 强制移动端适配（彻底修复渐变文字问题） */
+* {
   box-sizing: border-box !important;
+}
+
+/* 只给真正需要的容器加max-width，不给所有元素加 */
+.container, .card, .btn, .input, .textarea, table, img, video {
+  max-width: 100% !important;
 }
 
 :root {
   --color-primary: #6366f1;
   --color-primary-dark: #4f46e5;
+  --color-primary-light: #a5b4fc;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
@@ -19,6 +24,10 @@
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
   --border-color-base: #e2e8f0;
+  --border-color-light: #f1f5f9;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -32,7 +41,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 14px;
   background: var(--color-bg-secondary);
   overflow-x: hidden;
@@ -40,6 +49,7 @@ html, body {
 
 .container {
   width: 100%;
+  max-width: 1200px;
   padding: 0 12px;
   margin: 0 auto;
 }
@@ -50,6 +60,7 @@ html, body {
   padding: 16px;
   margin-bottom: 12px;
   width: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn {
@@ -60,6 +71,14 @@ html, body {
   color: white;
   text-align: center;
   margin-bottom: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--color-primary-dark);
 }
 
 .input, .textarea {
@@ -68,6 +87,14 @@ html, body {
   border: 1px solid var(--border-color-base);
   border-radius: var(--radius-md);
   margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus, .textarea:focus {
+  border-color: var(--color-primary);
 }
 
 .flex {
