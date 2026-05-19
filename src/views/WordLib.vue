@@ -711,8 +711,18 @@ function formatDate(date) {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block;
-  width: auto;
+  
+  /* 👇 把这两行删掉 */
+  /* display: inline-block; */
+  /* width: auto; */
+  
+  /* 👇 换成这三行，一个都不能少 */
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  
+  /* 👇 加这一行，强制GPU渲染，彻底解决bug */
+  transform: translateZ(0);
 }
 
 /* 功能卡片样式 */
