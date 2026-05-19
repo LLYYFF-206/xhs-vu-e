@@ -705,19 +705,14 @@ function formatDate(date) {
 }
 
 .stat-value {
-  font-size: 32px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  
-  /* 👇 只改这三行，上面的渐变完全保留 */
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: red !important; /* 用最显眼的红色 */
   display: block !important;
   text-align: center !important;
-  
-  /* 👇 加这一行，强制GPU渲染，彻底绕过WebKit的bug */
-  transform: translateZ(0);
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
 }
 
 /* 功能卡片样式 */
