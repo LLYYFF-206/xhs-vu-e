@@ -74,3 +74,16 @@ html, body {
   flex-wrap: wrap;
   gap: 8px;
 }
+/* 🔧 仅修复页面偏左问题，不改动任何原有样式 */
+html {
+  min-width: 100vw !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.container {
+  max-width: 100% !important;
+}
