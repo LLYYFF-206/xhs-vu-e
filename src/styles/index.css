@@ -39,7 +39,7 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* 🔥 关键：强制所有外层容器撑满设备宽度 */
+/* 关键：强制所有外层容器撑满设备宽度并水平居中 */
 .el-container,
 .container {
   width: 100vw !important;
@@ -47,6 +47,9 @@ html, body {
   padding: 0 12px !important;
   margin: 0 auto !important;
   box-sizing: border-box !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平居中 */
 }
 
 .el-table,
@@ -88,7 +91,11 @@ html, body {
   gap: 8px;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+/* 优化滚动条隐藏的方式 */
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
