@@ -42,8 +42,8 @@ html, body {
 .el-container, .container {
   width: 100% !important;
   max-width: 100% !important;
-  padding: 0 12px !important;
-  margin: 0 !important;        /* ← 去掉 auto，避免配合 100vw 时偏移 */
+  padding: 0 24px 0 36px !important;  /* 左边多一些，右边少一些 */
+  margin: 0 !important;
   box-sizing: border-box !important;
 }
 
