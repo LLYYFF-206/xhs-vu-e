@@ -27,19 +27,23 @@
   --spacing-lg: 24px;
 }
 
-/* 🔧 修复容器偏左问题 */
+/* 🔥 核心修复：页面永远居中，不偏左 */
 html, body {
-  width: 100vw !important;
+  width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: var(--color-bg-secondary);
   overflow-x: hidden !important;
-  box-sizing: border-box !important;
 }
 
+/* 🔥 容器真正居中：这是关键 */
 .container {
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding: 0 12px !important;
+  width: 100%;
+  max-width: 100% !important;
+  padding: 0 12px;
   margin: 0 auto !important;
   box-sizing: border-box !important;
 }
@@ -49,7 +53,6 @@ html, body {
   border-radius: var(--radius-lg);
   padding: 16px;
   margin-bottom: 12px;
-
 }
 
 .btn {
@@ -75,17 +78,3 @@ html, body {
   flex-wrap: wrap;
   gap: 8px;
 }
-/* 🔧 仅修复页面偏左问题，不改动任何原有样式 */
-html {
-  min-width: 100vw !important;
-}
-
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.container {
-  max-width: 100% !important;
-}
-
