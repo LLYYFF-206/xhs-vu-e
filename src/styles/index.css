@@ -1,6 +1,6 @@
 *:not(.stat-value) {
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 :root {
@@ -28,36 +28,33 @@
 }
 
 html, body {
-  width: 100vw !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   background: var(--color-bg-secondary);
-  overflow-x: hidden !important;
-  box-sizing: border-box !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-/* 关键：强制所有外层容器撑满设备宽度并水平居中 */
 .el-container,
 .container {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  padding: 0 12px !important;
-  margin: 0 auto !important;
-  box-sizing: border-box !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 水平居中 */
+  width: 100%;
+  max-width: 100%;
+  padding: 0 12px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .el-table,
 .el-pagination,
 .card {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto; /* 添加水平滚动条，防止内容被裁剪 */
 }
 
 .card {
@@ -91,11 +88,12 @@ html, body {
   gap: 8px;
 }
 
-/* 优化滚动条隐藏的方式 */
+/* 优化滚动条隐藏的方式，但允许在需要时显示滚动条 */
 .scrollbar-hidden {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: auto; /* IE and Edge */
+  scrollbar-width: thin; /* Firefox */
 }
+
 .scrollbar-hidden::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  height: 4px; /* 设置滚动条的高度（适用于水平滚动条） */
 }
