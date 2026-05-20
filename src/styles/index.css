@@ -27,9 +27,8 @@
   --spacing-lg: 24px;
 }
 
-/* 🔥 核心修复：只写一次，避免冲突 */
 html, body {
-  width: 100% !important;
+  width: 100vw !important;
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -37,26 +36,19 @@ html, body {
   font-size: 14px;
   background: var(--color-bg-secondary);
   overflow-x: hidden !important;
-  overflow-y: auto !important;
   box-sizing: border-box !important;
 }
 
-/* 🔥 给页面底部留安全区 */
-body {
-  padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
-}
-
-/* 🔥 容器居中 + 保留左右边距 */
+/* 🔥 关键：强制所有外层容器撑满设备宽度 */
+.el-container,
 .container {
-  width: 100% !important;
+  width: 100vw !important;
   max-width: 100vw !important;
   padding: 0 12px !important;
   margin: 0 auto !important;
   box-sizing: border-box !important;
 }
 
-/* 🔥 表格/分页强制撑满宽度 */
-.el-container,
 .el-table,
 .el-pagination,
 .card {
@@ -96,7 +88,6 @@ body {
   gap: 8px;
 }
 
-/* 🔥 隐藏滚动条，避免占用宽度 */
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
