@@ -27,7 +27,7 @@
   --spacing-lg: 24px;
 }
 
-/* 🔥 核心修复：页面居中 + 高度适配 */
+/* 🔥 核心修复：只写一次，避免冲突 */
 html, body {
   width: 100% !important;
   height: 100% !important;
@@ -41,17 +41,27 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* 🔥 强制给页面底部留安全区，解决内容被挡 */
+/* 🔥 给页面底部留安全区 */
 body {
   padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
 }
 
-/* 🔥 容器真正居中 */
+/* 🔥 容器居中 + 保留左右边距 */
 .container {
   width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 12px;
+  max-width: 100vw !important;
+  padding: 0 12px !important;
   margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 🔥 表格/分页强制撑满宽度 */
+.el-container,
+.el-table,
+.el-pagination,
+.card {
+  width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
@@ -86,27 +96,8 @@ body {
   gap: 8px;
 }
 
-/* 🔥 隐藏难看的滚动条，避免占用宽度 */
+/* 🔥 隐藏滚动条，避免占用宽度 */
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
-}
-/* 🔥 终极修复：页面撑满整个宽度，消除右侧空白 */
-html,
-body,
-.el-container,
-.container {
-  width: 100% !important;
-  max-width: 100vw !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* 强制表格/分页组件也撑满宽度 */
-.el-table,
-.el-pagination,
-.card {
-  width: 100% !important;
-  max-width: 100% !important;
 }
