@@ -27,7 +27,7 @@
   --spacing-lg: 24px;
 }
 
-/* 🔥 核心修复：页面永远居中，不偏左 */
+/* 🔥 核心修复：页面居中 + 高度适配 */
 html, body {
   width: 100% !important;
   height: 100% !important;
@@ -37,11 +37,18 @@ html, body {
   font-size: 14px;
   background: var(--color-bg-secondary);
   overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
 }
 
-/* 🔥 容器真正居中：这是关键 */
+/* 🔥 强制给页面底部留安全区，解决内容被挡 */
+body {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+}
+
+/* 🔥 容器真正居中 */
 .container {
-  width: 100%;
+  width: 100% !important;
   max-width: 100% !important;
   padding: 0 12px;
   margin: 0 auto !important;
@@ -77,4 +84,10 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* 🔥 隐藏难看的滚动条，避免占用宽度 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
