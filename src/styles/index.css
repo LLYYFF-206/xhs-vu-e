@@ -87,3 +87,13 @@ body {
 .container {
   max-width: 100% !important;
 }
+/* 🔧 终极修复：隐藏滚动条，解决滚动条占用宽度导致的偏移 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 强制所有元素不超出屏幕 */
+* {
+  overflow-x: hidden !important;
+}
