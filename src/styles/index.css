@@ -91,24 +91,22 @@ body {
   width: 0;
   height: 0;
 }
-/* 🔥 终极修复：强制所有容器水平居中，解决左侧内容被裁剪 */
+/* 🔥 终极修复：页面撑满整个宽度，消除右侧空白 */
 html,
 body,
 .el-container,
 .container {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  left: 0 !important;
-  right: 0 !important;
-  transform: none !important;
-  text-align: center !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
-/* 🔥 强制表格/列表内容左对齐，但容器整体居中 */
+/* 强制表格/分页组件也撑满宽度 */
 .el-table,
 .el-pagination,
-.card,
-.flex {
-  display: inline-block !important;
-  text-align: left !important;
+.card {
+  width: 100% !important;
+  max-width: 100% !important;
 }
