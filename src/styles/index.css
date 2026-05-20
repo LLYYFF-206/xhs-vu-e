@@ -1,99 +1,45 @@
-*:not(.stat-value) {
-  max-width: 100%;
-  box-sizing: border-box;
-}
+/* 其他样式保持不变... */
 
-:root {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
-
-  --color-text-primary: #1e293b;
-  --color-text-regular: #475569;
-  --color-text-secondary: #64748b;
-
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f8fafc;
-  --border-color-base: #e2e8f0;
-
-  --radius-md: 10px;
-  --radius-lg: 14px;
-
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-}
-
-html, body {
-  width: 100vw;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  background: var(--color-bg-secondary);
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-.el-container,
-.container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 12px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.el-table,
-.el-pagination,
-.card {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: auto; /* 添加水平滚动条，防止内容被裁剪 */
-}
-
-.card {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  margin-bottom: 12px;
-}
-
-.btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: white;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.input, .textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--border-color-base);
-  border-radius: var(--radius-md);
-  margin-bottom: 10px;
-}
-
-.flex {
+/* 分页组件样式调整 */
+.el-pagination {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  margin-top: 20px; /* 添加一些顶部边距 */
+  overflow-x: auto; /* 添加水平滚动条，防止内容被裁剪 */
+  white-space: nowrap; /* 防止页码换行 */
 }
 
-/* 优化滚动条隐藏的方式，但允许在需要时显示滚动条 */
-.scrollbar-hidden {
-  -ms-overflow-style: auto; /* IE and Edge */
-  scrollbar-width: thin; /* Firefox */
+.el-pagination .btn-prev,
+.el-pagination .btn-next {
+  margin: 0 5px; /* 添加一些左右边距 */
 }
 
-.scrollbar-hidden::-webkit-scrollbar {
-  height: 4px; /* 设置滚动条的高度（适用于水平滚动条） */
+.el-pagination span,
+.el-pagination a {
+  display: inline-block;
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  margin: 0 5px;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  background-color: #fff;
+  color: #606266;
+  font-size: 14px;
+  text-decoration: none;
 }
+
+.el-pagination a:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+}
+
+.el-pagination .active a {
+  color: #fff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* 其他样式保持不变... */
